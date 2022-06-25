@@ -1522,6 +1522,46 @@ updateConfig(){
 	if ! grep -Fq "soc_zeronglp2_intervall=" $ConfigFile; then
 		echo "soc_zeronglp2_intervall=20" >> $ConfigFile
 	fi
+	if ! grep -Fq "soc_mazda_username=" $ConfigFile; then
+		echo "soc_mazda_username=" >> $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazda_password=" $ConfigFile; then
+		echo "soc_mazda_password=" >> $ConfigFile
+	else
+		sed -i "/soc_mazda_password='/b; s/^soc_mazda_password=\(.*\)/soc_mazda_password=\'\l\'/g" $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazda_region=" $ConfigFile; then
+		echo "soc_mazda_region=MME" >> $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazda_vin=" $ConfigFile; then
+		echo "soc_mazda_vin=" >> $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazda_intervall=" $ConfigFile; then
+		echo "soc_mazda_intervall=20" >> $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazda_intervallladen=" $ConfigFile; then
+		echo "soc_mazda_intervallladen=10" >> $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazdalp2_username=" $ConfigFile; then
+		echo "soc_mazdalp2_username=" >> $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazdalp2_password=" $ConfigFile; then
+		echo "soc_mazdalp2_password=" >> $ConfigFile
+	else
+		sed -i "/soc_mazdalp2_password='/b; s/^soc_mazdalp2_password=\(.*\)/soc_mazdalp2_password=\'\l\'/g" $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazdalp2_region=" $ConfigFile; then
+		echo "soc_mazdalp2_region=MME" >> $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazdalp2_vin=" $ConfigFile; then
+		echo "soc_mazdalp2_vin=" >> $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazdalp2_intervall=" $ConfigFile; then
+		echo "soc_mazdalp2_intervall=20" >> $ConfigFile
+	fi
+	if ! grep -Fq "soc_mazdalp2_intervallladen=" $ConfigFile; then
+		echo "soc_mazdalp2_intervallladen=10" >> $ConfigFile
+	fi
 	if ! grep -Fq "solarview_hostname=" $ConfigFile; then
 		echo "solarview_hostname=192.168.0.31" >> $ConfigFile
 	fi

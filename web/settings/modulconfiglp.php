@@ -745,6 +745,7 @@
 										<option <?php if($socmodulold == "soc_id") echo "selected" ?> value="soc_id">VW ID-alt</option>
 										<option <?php if($socmodulold == "soc_vwid") echo "selected" ?> value="soc_vwid">VW ID</option>
 										<option <?php if($socmodulold == "soc_zerong") echo "selected" ?> value="soc_zerong">Zero NG</option>
+										<option <?php if($socmodulold == "soc_mazda") echo "selected" ?> value="soc_mazda">Mazda</option>
 									</optgroup>
 								</select>
 								<div id="socoldevccwarning" class="mt-1 alert alert-danger hide">
@@ -1142,6 +1143,74 @@
 									</div>
 								</div>
 							</div>
+							<div id="socmazda" class="hide">
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazda_username" class="col-md4 col-form-label1">Benutzername</label>
+										<div class="col">
+											<input class="form-control" type="email" name="soc_mazda_username" id="soc_mazda_username" value="<?php echo $soc_mazda_usernameold ?>">
+											<span class="form-text small">
+												Email Adresse des Mazda Logins
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazda_password" class="col-md4 col-form-label1">Passwort</label>
+										<div class="col">
+											<input class="form-control" type="password" name="soc_mazda_password" id="soc_mazda_password" value="<?php echo $soc_mazda_passwordold ?>">
+											<span class="form-text small">
+												Passwort des Mazda Logins
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazda_region" class="col-md4 col-form-label1">Region</label>
+										<div class="col">
+											<input class="form-control" type="text" name="soc_mazda_region" id="soc_mazda_region" value="<?php echo $soc_mazda_regionold ?>">
+											<span class="form-text small">
+												Region for Mazda Login (MNAO = North America, MME = Europe, MJO = Japan)
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazda_intervall" class="col-md4 col-form-label1">Abfrageintervall Standby</label>
+										<div class="col">
+											<input class="form-control" type="number" min="0" step="1" name="soc_mazda_intervall" id="soc_mazda_intervall" value="<?php echo $soc_mazda_intervallold ?>">
+											<span class="form-text small">
+												Wie oft der Ladestatus des EV abgefragt wird, wenn nicht geladen wird. Angabe in Minuten.
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazda_intervallladen" class="col-md4 col-form-label1">Abfrageintervall Laden</label>
+										<div class="col">
+											<input class="form-control" type="number" min="0" step="1" name="soc_mazda_intervallladen" id="soc_mazda_intervallladen" value="<?php echo $soc_mazda_intervallladenold ?>">
+											<span class="form-text small">
+												Wie oft der Ladestatus des EV abgefragt wird, wenn geladen wird. Angabe in Minuten.
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazda_vin" class="col-md4 col-form-label1">VIN des EV</label>
+										<div class="col">
+											<input class="form-control" type="text" name="soc_mazda_vin" id="soc_mazda_vin" value="<?php echo $soc_mazda_vinold ?>">
+											<span class="form-text small">
+												VIN des EV (Es können mehrere Fahrzeuge mit dem Mazda Login verknüpft sein)
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
 							<div id="socaiways" class="hide">
                                 <div class="form-group">
                                     <div class="alert alert-info">
@@ -1184,7 +1253,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>						
+                            </div>
 							<div id="socmaudi" class="hide">
 								<div class="form-group">
 									<div class="form-row mb-1">
@@ -2239,6 +2308,7 @@
 							hideSection('#socpsa');
 							hideSection('#socmanual');
 							hideSection('#soctronity');
+							hideSection('#socmazda');
 							hideSection('#socoldevccwarning');
 							hideSection('#socsupportinfo');
 							hideSection('#socnosupportinfo');
@@ -2300,6 +2370,9 @@
 							}
 							if($('#socmodul').val() == 'soc_zerong') {
 								showSection('#socmzerong');
+							}
+							if($('#socmodul').val() == 'soc_mazda') {
+								showSection('#socmazda');
 							}
 							if($('#socmodul').val() == 'soc_eq') {
 								$('#socsuportlink').attr('href', 'https://openwb.de/forum/viewtopic.php?f=12&t=3135')
@@ -2923,6 +2996,7 @@
 										<option <?php if($socmodul1old == "soc_idlp2") echo "selected" ?> value="soc_idlp2">VW ID-alt</option>
 										<option <?php if($socmodul1old == "soc_vwidlp2") echo "selected" ?> value="soc_vwidlp2">VW ID</option>
 										<option <?php if($socmodul1old == "soc_zeronglp2") echo "selected" ?> value="soc_zeronglp2">Zero NG</option>
+										<option <?php if($socmodul1old == "soc_mazdalp2") echo "selected" ?> value="soc_mazdalp2">Mazda</option>
 									</optgroup>
 								</select>
 								<div id="socoldevccwarninglp2" class="mt-1 alert alert-danger hide">
@@ -3060,6 +3134,74 @@
 											<input class="form-control" type="number" min="0" step="1" name="soc_zeronglp2_intervallladen" id="soc_zeronglp2_intervallladen" value="<?php echo $soc_zeronglp2_intervallladenold ?>">
 											<span class="form-text small">
 												Wie oft die Zero abgefragt wird während geladen wird. Angabe in Minuten.
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="socmazdalp2" class="hide">
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazdalp2_username" class="col-md4 col-form-label1">Benutzername</label>
+										<div class="col">
+											<input class="form-control" type="email" name="soc_mazdalp2_username" id="soc_mazdalp2_username" value="<?php echo $soc_mazdalp2_usernameold ?>">
+											<span class="form-text small">
+												Email Adresse des Mazda Logins
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazdalp2_password" class="col-md4 col-form-label1">Passwort</label>
+										<div class="col">
+											<input class="form-control" type="password" name="soc_mazdalp2_password" id="soc_mazdalp2_password" value="<?php echo $soc_mazdalp2_passwordold ?>">
+											<span class="form-text small">
+												Passwort des Mazda Logins
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazdalp2_region" class="col-md4 col-form-label1">Benutzername</label>
+										<div class="col">
+											<input class="form-control" type="text" name="soc_mazdalp2_region" id="soc_mazdalp2_region" value="<?php echo $soc_mazdalp2_regionold ?>">
+											<span class="form-text small">
+												Region for Mazda Login (MNAO = North America, MME = Europe, MJO = Japan)
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazda_intervall" class="col-md4 col-form-label1">Abfrageintervall Standby</label>
+										<div class="col">
+											<input class="form-control" type="number" min="0" step="1" name="soc_mazdalp2_intervall" id="soc_mazdalp2_intervall" value="<?php echo $soc_mazdalp2_intervallold ?>">
+											<span class="form-text small">
+												Wie oft der Ladestatus des EV abgefragt wird, wenn nicht geladen wird. Angabe in Minuten.
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazdalp2_intervallladen" class="col-md4 col-form-label1">Abfrageintervall Laden</label>
+										<div class="col">
+											<input class="form-control" type="number" min="0" step="1" name="soc_mazdalp2_intervallladen" id="soc_mazdalp2_intervallladen" value="<?php echo $soc_mazdalp2_intervallladenold ?>">
+											<span class="form-text small">
+												Wie oft der Ladestatus des EV abgefragt wird, wenn geladen wird. Angabe in Minuten.
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="form-row mb-1">
+										<label for="soc_mazdalp2_vin" class="col-md4 col-form-label1">VIN des EV</label>
+										<div class="col">
+											<input class="form-control" type="text" name="soc_mazdalp2_vin" id="soc_mazdalp2_vin" value="<?php echo $soc_mazdalp2_vinold ?>">
+											<span class="form-text small">
+												VIN des EV (Es können mehrere Fahrzeuge mit dem Mazda Login verknüpft sein)
 											</span>
 										</div>
 									</div>
@@ -4232,6 +4374,9 @@
 							}
 							if($('#socmodul1').val() == 'soc_zeronglp2') {
 								showSection('#socmzeronglp2');
+							}
+							if($('#socmodul1').val() == 'soc_mazdalp2') {
+								showSection('#socmazdalp2');
 							}
 							if($('#socmodul1').val() == 'soc_psalp2') {
 								showSection('#socpsalp2');
